@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <title>Ludo</title>
+    <style>
+      .img-1,
+      .img-2 {
+        object-fit: contain;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container shadow p-4">
+      <div class="row justify-content-around">
+        <div class="col-lg-5">
+          <div class="card shadow border">
+            <img
+              class="img-1"
+              src="https://tse2.mm.bing.net/th/id/OIP.ZQOYY7kIdAsSDc2PXplbCQHaF7?pid=Api&P=0&h=220"
+              width="100%"
+              height="400px"
+              alt=""
+            />
+          </div>
+          <button class="btn bg-danger w-100 p1-btn text-capitalize fw-bold">
+            player 1
+          </button>
+        </div>
+        <div class="col-lg-5">
+          <div class="card shadow border">
+            <img
+              class="img-2"
+              src="https://tse1.mm.bing.net/th/id/OIP.eaxSVd8yC-k6S-xNVrpOuQHaFm?pid=Api&P=0&h=220"
+              width="100%"
+              height="400px"
+              alt=""
+            />
+          </div>
+          <button class="btn bg-primary w-100 p2-btn text-capitalize fw-bold">
+            player 2
+          </button>
+        </div>
+      </div>
+
+      <h1 class="result text-center mt-4"></h1>
+    </div>
+
+    <script>
+      let imageOne = document.querySelector(".img-1");
+      let imageTwo = document.querySelector(".img-2");
+      let playerOneBtn = document.querySelector(".p1-btn");
+      let playerTwoBtn = document.querySelector(".p2-btn");
+      let result = document.querySelector(".result");
+
+      playerOneBtn.addEventListener("click", () => {
+        let number = Math.random() * 6;
+        let ceil = Math.ceil(number);
+        imageOne.src = `./dice/${ceil}.png`;
+      });
+
+      playerTwoBtn.addEventListener("click", () => {
+        let number = Math.random() * 6;
+        let ceil = Math.ceil(number);
+        imageTwo.src = `./dice/${ceil}.png`;
+      });
+    </script>
+  </body>
+</html>
