@@ -18,7 +18,7 @@
     </style>
   </head>
   <body>
-    <div class="container shadow p-4">
+    <div class="container shadow p-4 back">
       <div class="row justify-content-around">
         <div class="col-lg-5">
           <div class="card shadow border">
@@ -59,29 +59,33 @@
       let playerOneBtn = document.querySelector(".p1-btn");
       let playerTwoBtn = document.querySelector(".p2-btn");
       let result = document.querySelector(".result");
+      let back = document.querySelector(".back");
       let ceil1 = 0;
       let ceil2 = 0;
 
       playerOneBtn.addEventListener("click", () => {
         let number = Math.random() * 6;
         ceil1 = Math.ceil(number);
-        playerOneResult = imageOne.src = `./dice/${ceil1}.png`;
+        imageOne.src = `./dice/${ceil1}.png`;
       });
 
       playerTwoBtn.addEventListener("click", () => {
         let number = Math.random() * 6;
         ceil2 = Math.ceil(number);
-        playerTwoResult = imageTwo.src = `./dice/${ceil2}.png`;
+        imageTwo.src = `./dice/${ceil2}.png`;
         checkWinner();
       });
 
       function checkWinner() {
         if (ceil1 > ceil2) {
-          result.innerHTML = "Player one Wins";
+          result.innerHTML = "Player One Wins";
+          back.style.backgroundColor = "red";
         } else if (ceil1 < ceil2) {
           result.innerHTML = "Player Two wins";
+          back.style.backgroundColor = "blue";
         } else {
           result.innerHTML = "its a tie";
+          back.style.backgroundColor = "yellow";
         }
       }
     </script>
